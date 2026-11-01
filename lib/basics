@@ -1,0 +1,63 @@
+Flutter is basically a widget inside a widget
+    - Widgets are capitalized
+    - arguments are lower cased
+    - to put a widget inside another widget, you need to use an argument
+
+
+You must have a build method! Defined on every widget and 
+will always return another widget
+
+Stateful widgets:
+when a widget's apperance or data needs to change during its lifetime
+    - you also ened a companion state object
+    - the stateful widget itself is immutable
+    - the state object is mutable -> UI updates
+        - when you mutate state obkect
+            - call setState to signal framework to update the UI and call build method again
+
+Implicit aniamtions: groups of widgets that automatically animate changes to their properties without you needing to manage any intermediate behavior
+    - AnimatedContainer
+
+Use const when the value is known at compile time and will never change
+    - const pi = 3.14159
+    - using const lets Flutter reuse widgets isntead of rebuilding them
+
+Use final when the value is assigned once at runtime
+    - you cannot reassign them later
+
+Use var when the variable with change
+    - var score = 0;
+    - score++;
+    - var message = "Hi!";
+    - message = "Hello!";
+
+void means that the func does not return a value
+
+Running flutter pub add adds the package to pubspec.yaml and downloads it.
+
+MVVM is an architectural pattern used in client apps that separates your app into three layers:
+
+Model: Handles data operations.
+View: Displays the UI.
+ViewModel: Manages state and connects the two.
+    - ChangeNotifier class to notify UI when data changes
+    - To use ChangeNotifier, extend it in your state management class to gain access 
+      to the notifyListeners() method, which triggers UI rebuilds when called.
+
+ListenableBuilder is a widget that can "listen" to a ChangeNotifier, and automatically rebuilds when it's provided ChangeNotifier calls notifyListeners().
+
+ValueNotifier is a simple ChangeNotifier that wraps a single value and notifies listeners on change.
+
+Silvers: special widgets that can take advantage of Flutter's powerful and composable scrolling system
+    - create sophisticated scroll effects, including   collapsible headers, search integration, and custom scroll behaviors
+
+How do you use a regular widget inside a CustomScrollView's slivers list?
+    Wrap it in a SliverToBoxAdapter or    SliverFillRemaining.
+        These adapters convert regular widgets into slivers so they can be used in sliver contexts.
+
+Navigator.of(context).pop():
+    Removes the current route from the navigation stack, returning to the previous screen.
+    
+
+//in order to actually read the input
+  TextEditingController controller = TextEditingController();
